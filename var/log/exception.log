@@ -1,0 +1,16 @@
+[2017-08-21 13:33:01] main.CRITICAL: exception 'Magento\Framework\Exception\LocalizedException' with message 'Can't create directory /opt/lampp/htdocs/magento207/var/generation/Magento/Framework/App/Response/Http/.' in /opt/lampp/htdocs/magento207/vendor/magento/framework/Code/Generator.php:103
+Stack trace:
+#0 /opt/lampp/htdocs/magento207/vendor/magento/framework/Code/Generator/Autoloader.php(35): Magento\Framework\Code\Generator->generateClass('Magento\\Framewo...')
+#1 [internal function]: Magento\Framework\Code\Generator\Autoloader->load('Magento\\Framewo...')
+#2 [internal function]: spl_autoload_call('Magento\\Framewo...')
+#3 /opt/lampp/htdocs/magento207/vendor/magento/framework/Code/Reader/ClassReader.php(19): ReflectionClass->__construct('Magento\\Framewo...')
+#4 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/Definition/Runtime.php(44): Magento\Framework\Code\Reader\ClassReader->getConstructor('Magento\\Framewo...')
+#5 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/Factory/Dynamic/Developer.php(71): Magento\Framework\ObjectManager\Definition\Runtime->getParameters('Magento\\Framewo...')
+#6 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/ObjectManager.php(71): Magento\Framework\ObjectManager\Factory\Dynamic\Developer->create('Magento\\Framewo...')
+#7 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/Factory/AbstractFactory.php(236): Magento\Framework\ObjectManager\ObjectManager->get('Magento\\Framewo...')
+#8 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/Factory/Dynamic/Developer.php(53): Magento\Framework\ObjectManager\Factory\AbstractFactory->resolveArgument(Array, 'Magento\\Framewo...', NULL, 'response', 'Magento\\Framewo...')
+#9 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/Factory/Dynamic/Developer.php(82): Magento\Framework\ObjectManager\Factory\Dynamic\Developer->_resolveArguments('Magento\\Framewo...', Array, Array)
+#10 /opt/lampp/htdocs/magento207/vendor/magento/framework/ObjectManager/ObjectManager.php(57): Magento\Framework\ObjectManager\Factory\Dynamic\Developer->create('Magento\\Framewo...', Array)
+#11 /opt/lampp/htdocs/magento207/vendor/magento/framework/App/Bootstrap.php(233): Magento\Framework\ObjectManager\ObjectManager->create('Magento\\Framewo...', Array)
+#12 /opt/lampp/htdocs/magento207/index.php(38): Magento\Framework\App\Bootstrap->createApplication('Magento\\Framewo...')
+#13 {main} [] []
