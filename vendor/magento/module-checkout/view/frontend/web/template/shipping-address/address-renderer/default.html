@@ -12,12 +12,12 @@
     <!-- ko text: address().telephone --><!-- /ko --><br/>
     <!-- ko if: (address().isEditable()) -->
     <button type="button"
-            class="action edit-address-link"
+            class="button black action edit-address-link"
             data-bind="click: editAddress, visible: address().isEditable()">
-        <span data-bind="i18n: 'Edit'"></span>
+       Edit Address
     </button>
     <!-- /ko -->
-    <button type="button" data-bind="click: selectAddress" class="action action-select-shipping-item">
+    <button type="button" data-bind="click: selectAddress" class="button black action action-select-shipping-item">
         <span data-bind="i18n: 'Ship Here'"></span>
     </button>
 </div>

@@ -1,7 +1,3 @@
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
 /*jshint browser:true*/
 /*global define*/
 define(
@@ -95,6 +91,12 @@ define(
                         this.saveInAddressBook(newAddress.saveInAddressBook);
                     }
                     this.isAddressDetailsVisible(true);
+                }, this);
+
+                quote.shippingAddress.subscribe(function (newAddress) {
+                    if (!quote.isVirtual() && this.isAddressSameAsShipping()) {
+                        quote.billingAddress(newAddress);
+                    }
                 }, this);
 
                 return this;
@@ -219,6 +221,14 @@ define(
              */
             getCountryName: function (countryId) {
                 return countryData()[countryId] != undefined ? countryData()[countryId].name : '';
+            },
+
+            /**
+             * @param {int} city
+             * @return {boolean}
+             */
+            hasCity: function (city) {
+                return city != null && city != undefined && city != '';
             }
         });
     }

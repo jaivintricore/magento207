@@ -1,8 +1,3 @@
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-/*global define*/
 define(
     [
         'jquery',
@@ -15,7 +10,7 @@ define(
         'Magento_Checkout/js/model/quote',
         'Magento_Checkout/js/action/create-shipping-address',
         'Magento_Checkout/js/action/select-shipping-address',
-        'Magento_Checkout/js/model/shipping-rates-validator',
+        'HS_OneStepCheckout/js/model/shipping-rates-validator',
         'Magento_Checkout/js/model/shipping-address/form-popup-state',
         'Magento_Checkout/js/model/shipping-service',
         'Magento_Checkout/js/action/select-shipping-method',
@@ -57,7 +52,7 @@ define(
         var popUp = null;
         return Component.extend({
             defaults: {
-                template: 'Magento_Checkout/shipping'
+                template: 'HS_OneStepCheckout/shipping'
             },
             visible: ko.observable(!quote.isVirtual()),
             errorValidationMessage: ko.observable(false),
@@ -67,18 +62,16 @@ define(
             isNewAddressAdded: ko.observable(false),
             saveInAddressBook: true,
             quoteIsVirtual: quote.isVirtual(),
+            shippingMethodSectionMessage: window.checkoutConfig.shippingMethodSectionMessage,
 
             initialize: function () {
                 var self = this;
                 this._super();
-                if (!quote.isVirtual()) {
-                    stepNavigator.registerStep(
-                        'shipping',
-                        '',
-                        'Shipping',
-                        this.visible, _.bind(this.navigate, this),
-                        10
-                    );
+
+                $('body').addClass('hs-osc').addClass(window.checkoutConfig.onestepcheckoutLayout);
+
+                if (quote.isVirtual()) {
+                    $('body').addClass('hs-osc').addClass('hs-virtual');
                 }
                 checkoutDataResolver.resolveShippingAddress();
 
@@ -188,7 +181,20 @@ define(
             selectShippingMethod: function(shippingMethod) {
                 selectShippingMethodAction(shippingMethod);
                 checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
+                $('#co-shipping-method-form').submit();
                 return true;
+            },
+
+            isSingleShippingMethodSelected: false,
+            selectSingleShippingMethod: function(input, shippingMethod) {
+                selectShippingMethodAction(shippingMethod);
+                checkoutData.setSelectedShippingRate(shippingMethod.carrier_code + '_' + shippingMethod.method_code);
+                if(!this.isSingleShippingMethodSelected && this.rates().length == 1) {
+                    this.isSingleShippingMethodSelected = true;
+                    setShippingInformationAction();
+                }
+
+                return this.isSingleShippingMethodSelected;
             },
 
             setShippingInformation: function () {

@@ -4,9 +4,11 @@
  * See COPYING.txt for license details.
  */
 -->
-<div class="opc-block-summary" data-bind="blockLoader: isLoading">
-    <span data-bind="i18n: 'Order Summary'" class="title"></span>
-    <!-- ko foreach: elems() -->
-        <!-- ko template: getTemplate() --><!-- /ko -->
-    <!-- /ko -->
-</div>
+
+  <label data-bind="i18n: 'Order Summary'"></label>
+		    <div class="grey_box large">
+		    <!-- ko foreach: elems() -->
+		        <!-- ko template: getTemplate() --><!-- /ko -->
+		    <!-- /ko -->
+		    </div>
+
