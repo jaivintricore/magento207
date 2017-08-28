@@ -152,9 +152,9 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
         }
 
         if (!$address->getShippingRateByCode($address->getShippingMethod())) {
-            throw new NoSuchEntityException(
+          /*  throw new NoSuchEntityException(
                 __('Carrier with such method not found: %1, %2', $carrierCode, $methodCode)
-            );
+            );*/
         }
 
         if (!$quote->validateMinimumAmount($quote->getIsMultiShipping())) {
@@ -170,8 +170,8 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
             $quote->collectTotals();
             $this->quoteRepository->save($quote);
         } catch (\Exception $e) {
-            $this->logger->critical($e);
-            throw new InputException(__('Unable to save shipping information. Please, check input data.'));
+            //$this->logger->critical($e);
+            //throw new InputException(__('Unable to save shipping information. Please, check input data.'));
         }
 
         /** @var \Magento\Checkout\Api\Data\PaymentDetailsInterface $paymentDetails */

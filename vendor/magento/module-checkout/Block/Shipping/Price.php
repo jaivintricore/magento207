@@ -68,6 +68,7 @@ class Price extends AbstractCart
      */
     public function getShippingPrice()
     {
-        return $this->priceCurrency->convertAndFormat($this->shippingRate->getPrice());
+        //return $this->priceCurrency->convertAndFormat($this->shippingRate->getPrice());
+        return !$this->shippingRate ? null : $this->priceCurrency->convertAndFormat($this->shippingRate->getPrice());
     }
 }

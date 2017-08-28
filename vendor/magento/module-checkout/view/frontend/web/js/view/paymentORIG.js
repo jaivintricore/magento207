@@ -30,21 +30,6 @@ define(
         checkoutDataResolver
     ) {
         'use strict';
-        
-        		// Cards Tabs
-		$('.payment_content').hide();
-		$('ul.payment_tabs li:first-child').addClass('active');
-		$('.payment_content:first').show();
-		$('#payment_tabs li a').click(function (e) {
-			e.preventDefault();
-			console.log('test');
-			$('ul.payment_tabs li').removeClass('active');
-			$(this).parent('li').addClass('active');
-			$('.payment_content').hide();
-			var activeTab = $(this).attr('href');
-			$('.checkout').find(activeTab).show();
-			return false;
-		});
 
         /** Set payment methods to collection */
         paymentService.setPaymentMethods(methodConverter(window.checkoutConfig.paymentMethods));
@@ -83,13 +68,7 @@ define(
 
             getFormKey: function() {
                 return window.checkoutConfig.formKey;
-            },
-            
-            swapTabs: function(tab){
-	            console.log('tab');
             }
-            
-                       
         });
     }
 );
