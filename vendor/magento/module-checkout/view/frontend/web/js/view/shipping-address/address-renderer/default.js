@@ -1,8 +1,3 @@
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-/*global define*/
 define([
     'jquery',
     'ko',
@@ -10,12 +5,12 @@ define([
     'Magento_Checkout/js/action/select-shipping-address',
     'Magento_Checkout/js/model/quote',
     'Magento_Checkout/js/model/shipping-address/form-popup-state',
+    'Magento_Checkout/js/action/set-shipping-information',
     'Magento_Checkout/js/checkout-data',
     'Magento_Customer/js/customer-data'
-], function($, ko, Component, selectShippingAddressAction, quote, formPopUpState, checkoutData, customerData) {
+], function($, ko, Component, selectShippingAddressAction, quote, formPopUpState, setShippingInformationAction, checkoutData, customerData) {
     'use strict';
     var countryData = customerData.get('directory-data');
-
     return Component.extend({
         defaults: {
             template: 'Magento_Checkout/shipping-address/address-renderer/default'
@@ -43,6 +38,7 @@ define([
         selectAddress: function() {
             selectShippingAddressAction(this.address());
             checkoutData.setSelectedShippingAddress(this.address().getKey());
+            setShippingInformationAction();
         },
 
         editAddress: function() {

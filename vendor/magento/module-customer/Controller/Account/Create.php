@@ -54,7 +54,7 @@ class Create extends \Magento\Customer\Controller\AbstractAccount
         if ($this->session->isLoggedIn() || !$this->registration->isAllowed()) {
             /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
             $resultRedirect = $this->resultRedirectFactory->create();
-            $resultRedirect->setPath('*/*');
+            $resultRedirect->setPath('customer/account');
             return $resultRedirect;
         }
 

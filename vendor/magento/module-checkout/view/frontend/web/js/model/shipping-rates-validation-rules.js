@@ -16,7 +16,12 @@ define(
                 }
             },
             getRules: function() {
-                return ratesRules;
+                /*return ratesRules;*/
+                return {
+                		'country_id': {
+                        'required': true}
+                        
+                        }
             },
             getObservableFields: function() {
                 var self = this;

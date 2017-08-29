@@ -35,12 +35,16 @@ define([
 
     var dataProvider = {
         getFromStorage: function (sectionNames) {
-            var result = {};
-            _.each(sectionNames, function (sectionName) {
-                result[sectionName] = storage.get(sectionName);
-            });
-            return result;
-        },
+			var result = {};
+			_.each(sectionNames, function (sectionName) {
+				if(sectionName == 'messages'){
+					return;
+				}
+				console.log(sectionName);
+				result[sectionName] = storage.get(sectionName);
+			});
+			return result;
+		},
         getFromServer: function (sectionNames, updateSectionId) {
             sectionNames = sectionConfig.filterClientSideSections(sectionNames);
             var parameters = _.isArray(sectionNames) ? {sections: sectionNames.join(',')} : [];
@@ -50,7 +54,6 @@ define([
             });
         }
     };
-
 
     ko.extenders.disposableCustomerData = function(target, sectionName) {
         var sectionDataIds, newSectionDataIds = {};

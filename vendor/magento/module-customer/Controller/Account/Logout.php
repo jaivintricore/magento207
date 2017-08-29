@@ -34,14 +34,16 @@ class Logout extends \Magento\Customer\Controller\AbstractAccount
      * @return \Magento\Framework\Controller\Result\Redirect
      */
     public function execute()
-    {
+    {        
         $lastCustomerId = $this->session->getId();
         $this->session->logout()->setBeforeAuthUrl($this->_redirect->getRefererUrl())
             ->setLastCustomerId($lastCustomerId);
 
+        header("Location: https://www.liveinnermost.com/");
+
         /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultRedirectFactory->create();
-        $resultRedirect->setPath('*/*/logoutSuccess');
-        return $resultRedirect;
+        #$resultRedirect = $this->resultRedirectFactory->create();
+        #$resultRedirect->setPath('/');
+        #return $resultRedirect;
     }
 }

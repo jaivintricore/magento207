@@ -92,7 +92,7 @@ class CouponPost extends \Magento\Checkout\Controller\Cart
                         $coupon = $this->couponFactory->create();
                         $coupon->load($couponCode, 'code');
                         if ($coupon->getId()) {
-                            $this->_checkoutSession->getQuote()->setCouponCode($couponCode)->save();
+                            $test = $this->_checkoutSession->getQuote()->setCouponCode($couponCode)->save();
                             $this->messageManager->addSuccess(
                                 __(
                                     'You used coupon code "%1".',
@@ -142,7 +142,7 @@ class CouponPost extends \Magento\Checkout\Controller\Cart
             $this->messageManager->addError(__('We cannot apply the coupon code.'));
             $this->_objectManager->get('Psr\Log\LoggerInterface')->critical($e);
         }
-
+        
         return $this->_goBack();
     }
 }

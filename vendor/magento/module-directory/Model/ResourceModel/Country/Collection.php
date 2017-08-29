@@ -223,7 +223,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             $name = array_search($foregroundCountry, $sort);
             unset($sort[$name]);
             $sort = [$name => $foregroundCountry] + $sort;
-        }
+        }        
         $options = [];
         foreach ($sort as $label => $value) {
             $option = ['value' => $value, 'label' => $label];

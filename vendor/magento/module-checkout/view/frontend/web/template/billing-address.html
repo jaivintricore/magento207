@@ -4,10 +4,19 @@
  * See COPYING.txt for license details.
  */
 -->
-<div class="billing-address-same-as-shipping-block field choice" data-bind="visible: canUseShippingAddress()">
-    <input type="checkbox" name="billing-address-same-as-shipping" data-bind="checked: isAddressSameAsShipping, click: useShippingAddress, attr: {id: 'billing-address-same-as-shipping-' + $parent.getCode()}"/>
-    <label data-bind="attr: {for: 'billing-address-same-as-shipping-' + $parent.getCode()}"><span data-bind="i18n: 'My billing and shipping address are the same'"></span></label>
-</div>
+
+<label>Billing Address?</label>
+<div class="billing-address-same-as-shipping-block field choice field_full" data-bind="visible: canUseShippingAddress()">
+	<div class="grey_box checkbox_grey_box">
+		<div class="checkbox">
+			<label data-bind="attr: {for: 'billing-address-same-as-shipping-' + $parent.getCode()}">
+				<input type="checkbox" name="billing-address-same-as-shipping" data-bind="checked: isAddressSameAsShipping, click: useShippingAddress, attr: {id: 'billing-address-same-as-shipping-' + $parent.getCode()}"/>
+				<div id="billing-address-same-as-shipping" class="box"></div><!--box-->
+				<div class="text">Use shipping address</div>
+			</label>
+        </div><!--checkbox-->
+	</div>
+</div><!--field-->
 
 <!-- ko template: 'Magento_Checkout/billing-address/details' --><!-- /ko -->
 <fieldset class="fieldset" data-bind="visible: !isAddressDetailsVisible()">
@@ -15,10 +24,10 @@
     <!-- ko template: 'Magento_Checkout/billing-address/form' --><!-- /ko -->
     <div class="actions-toolbar">
         <div class="primary">
-            <button class="action action-update" type="button" data-bind="click: updateAddress">
+            <button class="button action action-update" type="button" data-bind="click: updateAddress">
                 <span data-bind="i18n: 'Update'"></span>
             </button>
-            <button class="action action-cancel" type="button" data-bind="click: cancelAddressEdit">
+            <button class="button action action-cancel" type="button" data-bind="click: cancelAddressEdit">
                 <span data-bind="i18n: 'Cancel'"></span>
             </button>
         </div>
