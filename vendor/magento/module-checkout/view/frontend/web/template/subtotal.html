@@ -1,0 +1,21 @@
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div class="order_review wrap">
+	<table>
+		<!-- SUBTOTAL ROW -->
+		<tr class="subtotal">
+			<td colspan="4" class="label"><span><strong>SUBTOTAL:</strong></span></td>
+			<td class="sub_total_price price" data-bind ="text: getValue(), attr:{'data-label': title}">
+		        <!-- ko foreach: elems() -->
+		            <!-- ko template: getTemplate() --><!-- /ko -->
+		        <!-- /ko -->
+		    </td>
+		</tr>
+	</table>
+</div>
+

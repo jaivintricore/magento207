@@ -836,7 +836,7 @@ class Configurable extends \Magento\Catalog\Model\Product\Type\AbstractType
      */
     public function getSpecifyOptionMessage()
     {
-        return __('You need to choose options for your item.');
+        return __('Sorry, this combination is currently out of stock.');
     }
 
     /**

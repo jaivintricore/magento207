@@ -220,7 +220,10 @@ class AbstractProduct extends \Magento\Framework\View\Element\Template
     {
         if (!$this->hasData('product')) {
             $this->setData('product', $this->_coreRegistry->registry('product'));
+            
+       
         }
+        
         return $this->getData('product');
     }
 

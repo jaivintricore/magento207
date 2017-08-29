@@ -40,4 +40,9 @@ class Remove extends Generic
     {
         return $this->cartHelper->getDeletePostJson($this->getItem());
     }
+    
+        public function getDeletePostJsonFromParent($_item)
+    {
+        return $this->cartHelper->getDeletePostJson($_item);
+    }
 }

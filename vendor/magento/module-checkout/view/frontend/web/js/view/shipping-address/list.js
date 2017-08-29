@@ -1,8 +1,3 @@
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-/*global define*/
 define([
     'underscore',
     'ko',
@@ -15,7 +10,7 @@ define([
     var defaultRendererTemplate = {
         parent: '${ $.$data.parentName }',
         name: '${ $.$data.name }',
-        component: 'Magento_Checkout/js/view/shipping-address/address-renderer/default'
+        component: 'HS_OneStepCheckout/js/view/shipping-address/address-renderer/default'
     };
 
     return Component.extend({

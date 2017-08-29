@@ -10,17 +10,17 @@
 <?php $_order = $block->getOrder() ?>
 <?php if ($_order): ?>
     <?php $_items = $_order->getAllItems(); ?>
-    <table class="email-items">
+    <table class="email-items" width="560">
         <thead>
             <tr>
-                <th class="item-info">
-                    <?= /* @escapeNotVerified */  __('Items'); ?>
+                <th class="item-info" valign="top" width="360">
+                    <h3>Items</h3>
                 </th>
-                <th class="item-qty">
-                    <?= /* @escapeNotVerified */  __('Qty'); ?>
+                <th class="item-qty" valign="top" width="80">
+                    <h3>Qty</h3>
                 </th>
-                <th class="item-price">
-                    <?= /* @escapeNotVerified */  __('Price'); ?>
+                <th class="item-price" valign="top" width="120">
+                    <h3>Price</h3>
                 </th>
             </tr>
         </thead>
